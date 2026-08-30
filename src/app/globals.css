@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #0b0c14;
+  --foreground: #f1f3f9;
+  --card: #11121d;
+  --card-foreground: #f1f3f9;
+  --popover: #151724;
+  --popover-foreground: #f1f3f9;
+  --primary: #6f77e8;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1c2a;
+  --secondary-foreground: #c5cbe0;
+  --muted-surface: #181a26;
+  --muted-foreground: #9098b2;
+  --accent-surface: #1f2131;
+  --accent-foreground: #f1f3f9;
+  --destructive: #c85f51;
+  --border: #262837;
+  --border-strong: #343748;
+  --input: #343748;
+  --ring: #6f77e8;
+  --success: #4bc7a5;
+  --warning: #f0b45c;
+  --critical: #ff8f7c;
+  --chart: #737bed;
+  --sidebar: #0e0f18;
+  --radius: 0.5rem;
+
+  /* Compatibility aliases for the Traceglow design contract. */
+  --canvas: var(--background);
+  --surface: var(--card);
+  --surface-raised: var(--popover);
+  --surface-hover: var(--secondary);
+  --text: var(--foreground);
+  --text-secondary: var(--secondary-foreground);
+  --muted: var(--muted-foreground);
+  --accent: var(--primary);
+  --accent-hover: #8087ef;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted-surface);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent-surface);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-critical: var(--critical);
+  --color-chart: var(--chart);
+  --color-sidebar: var(--sidebar);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius-sm: calc(var(--radius) - 3px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 2px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    @apply bg-background;
+  }
+
+  body {
+    @apply m-0 bg-background text-foreground antialiased;
+    font-family: var(--font-geist-sans), Arial, sans-serif;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  .lucide {
+    stroke-width: 1.8;
+  }
+
+  ::selection {
+    background: rgb(111 119 232 / 35%);
+    color: var(--foreground);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

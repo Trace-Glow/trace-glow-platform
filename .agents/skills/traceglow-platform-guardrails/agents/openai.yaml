@@ -1,0 +1,4 @@
+interface:
+  display_name: "Traceglow Platform Guardrails"
+  short_description: "Traceglow product, tenancy, and observability rules"
+  default_prompt: "Use $traceglow-platform-guardrails to implement this Traceglow feature consistently with the product domain and tenant boundaries."
